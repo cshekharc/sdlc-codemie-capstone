@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeMie – Learn. Build. Succeed.</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🎓</div>
+        CodeMie
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="index.html#instructors">Instructors</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn btn-outline">Sign In</a>
+        <a href="courses.html" class="btn btn-primary">Get Started</a>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="eyebrow">🚀 #1 Online Learning Platform</div>
+        <h1>
+          Master <span>In-Demand</span> Skills &amp; Advance Your Career
+        </h1>
+        <p>
+          Access 10,000+ expert-led courses in programming, design, data science, and business.
+          Learn at your own pace, earn certificates, and land your dream job.
+        </p>
+        <div class="hero-cta">
+          <a href="courses.html" class="btn btn-accent btn-lg">Explore Courses</a>
+          <a href="dashboard.html" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff;">
+            View Dashboard
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>50K+</strong><span>Active Learners</span></div>
+          <div class="hero-stat"><strong>10K+</strong><span>Courses</span></div>
+          <div class="hero-stat"><strong>500+</strong><span>Expert Tutors</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-card-avatar">👩‍💻</div>
+          <div class="hero-card-meta">
+            <strong>Sarah's Learning Path</strong>
+            <span>Full-Stack Developer Track</span>
+          </div>
+        </div>
+        <div class="progress-list">
+          <div class="progress-item">
+            <label><span>HTML &amp; CSS Fundamentals</span><span>100%</span></label>
+            <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+          </div>
+          <div class="progress-item">
+            <label><span>JavaScript Essentials</span><span>78%</span></label>
+            <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+          </div>
+          <div class="progress-item">
+            <label><span>React &amp; Node.js</span><span>45%</span></label>
+            <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
+          </div>
+          <div class="progress-item">
+            <label><span>Databases &amp; APIs</span><span>10%</span></label>
+            <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats Bar ────────────────────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item"><strong>50,000+</strong><span>Students Enrolled</span></div>
+        <div class="stat-item"><strong>10,000+</strong><span>Online Courses</span></div>
+        <div class="stat-item"><strong>500+</strong><span>Expert Instructors</span></div>
+        <div class="stat-item"><strong>4.8 ★</strong><span>Average Rating</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Categories ───────────────────────────────────────────────── -->
+  <section class="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Browse Topics</span>
+        <h2>Explore Categories</h2>
+        <p>From programming to design, find courses in every field you're passionate about.</p>
+      </div>
+      <div class="category-grid">
+        <div class="category-card" onclick="window.location='courses.html'">
+          <span class="icon">💻</span>
+          <strong>Programming</strong>
+          <span>2,400+ courses</span>
+        </div>
+        <div class="category-card" onclick="window.location='courses.html'">
+          <span class="icon">🎨</span>
+          <strong>Design</strong>
+          <span>1,100+ courses</span>
+        </div>
+        <div class="category-card" onclick="window.location='courses.html'">
+          <span class="icon">📊</span>
+          <strong>Data Science</strong>
+          <span>980+ courses</span>
+        </div>
+        <div class="category-card" onclick="window.location='courses.html'">
+          <span class="icon">🤖</span>
+          <strong>AI / ML</strong>
+          <span>760+ courses</span>
+        </div>
+        <div class="category-card" onclick="window.location='courses.html'">
+          <span class="icon">📱</span>
+          <strong>Mobile Dev</strong>
+          <span>640+ courses</span>
+        </div>
+        <div class="category-card" onclick="window.location='courses.html'">
+          <span class="icon">☁️</span>
+          <strong>Cloud &amp; DevOps</strong>
+          <span>540+ courses</span>
+        </div>
+        <div class="category-card" onclick="window.location='courses.html'">
+          <span class="icon">🔐</span>
+          <strong>Cybersecurity</strong>
+          <span>420+ courses</span>
+        </div>
+        <div class="category-card" onclick="window.location='courses.html'">
+          <span class="icon">📈</span>
+          <strong>Business</strong>
+          <span>880+ courses</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Courses ─────────────────────────────────────────── -->
+  <section class="courses-section" id="courses">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Top Picks</span>
+        <h2>Featured Courses</h2>
+        <p>Handpicked courses to fast-track your learning journey.</p>
+      </div>
+      <div class="courses-filter">
+        <button class="filter-btn active" onclick="filterCourses(this,'all')">All</button>
+        <button class="filter-btn" onclick="filterCourses(this,'programming')">Programming</button>
+        <button class="filter-btn" onclick="filterCourses(this,'design')">Design</button>
+        <button class="filter-btn" onclick="filterCourses(this,'data')">Data Science</button>
+        <button class="filter-btn" onclick="filterCourses(this,'ai')">AI / ML</button>
+      </div>
+      <div class="courses-grid" id="coursesGrid">
+
+        <article class="course-card" data-cat="programming">
+          <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">
+            🖥️
+            <span class="badge badge-green level-badge">Beginner</span>
+          </div>
+          <div class="course-body">
+            <div class="course-category">Programming</div>
+            <h3>The Complete JavaScript Bootcamp 2025</h3>
+            <p>From zero to expert — master modern JS, ES2024 features, async patterns, and build 15 real projects.</p>
+            <div class="course-meta">
+              <span>⏱️ 42 hours</span>
+              <span>📚 210 lessons</span>
+              <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.9</em></span>
+            </div>
+            <div class="course-footer">
+              <div>
+                <span class="course-price">$49 <span class="original">$199</span></span>
+              </div>
+              <div class="course-instructor">
+                <div class="instructor-avatar">JK</div>
+                Jonas K.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card" data-cat="data">
+          <div class="course-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">
+            📊
+            <span class="badge badge-accent level-badge">Intermediate</span>
+          </div>
+          <div class="course-body">
+            <div class="course-category">Data Science</div>
+            <h3>Python for Data Science &amp; Machine Learning</h3>
+            <p>pandas, NumPy, Scikit-Learn, Matplotlib — build end-to-end ML pipelines from scratch.</p>
+            <div class="course-meta">
+              <span>⏱️ 36 hours</span>
+              <span>📚 185 lessons</span>
+              <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.8</em></span>
+            </div>
+            <div class="course-footer">
+              <div>
+                <span class="course-price">$59 <span class="original">$229</span></span>
+              </div>
+              <div class="course-instructor">
+                <div class="instructor-avatar" style="background:linear-gradient(135deg,#10b981,#059669)">AP</div>
+                Amelia P.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card" data-cat="design">
+          <div class="course-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">
+            🎨
+            <span class="badge badge-green level-badge">Beginner</span>
+          </div>
+          <div class="course-body">
+            <div class="course-category">Design</div>
+            <h3>UI/UX Design Mastery with Figma</h3>
+            <p>Design stunning interfaces, create interactive prototypes, and land a UX role with a strong portfolio.</p>
+            <div class="course-meta">
+              <span>⏱️ 28 hours</span>
+              <span>📚 140 lessons</span>
+              <span class="star-rating">★★★★☆ <em style="color:var(--muted)">4.7</em></span>
+            </div>
+            <div class="course-footer">
+              <div>
+                <span class="course-price">$44 <span class="original">$179</span></span>
+              </div>
+              <div class="course-instructor">
+                <div class="instructor-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706)">ML</div>
+                Maya L.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card" data-cat="ai">
+          <div class="course-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca)">
+            🤖
+            <span class="badge badge-red level-badge">Advanced</span>
+          </div>
+          <div class="course-body">
+            <div class="course-category">AI / ML</div>
+            <h3>Deep Learning with PyTorch &amp; TensorFlow</h3>
+            <p>CNNs, RNNs, Transformers, GANs — implement state-of-the-art architectures from scratch.</p>
+            <div class="course-meta">
+              <span>⏱️ 52 hours</span>
+              <span>📚 260 lessons</span>
+              <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.9</em></span>
+            </div>
+            <div class="course-footer">
+              <div>
+                <span class="course-price">$79 <span class="original">$299</span></span>
+              </div>
+              <div class="course-instructor">
+                <div class="instructor-avatar" style="background:linear-gradient(135deg,#ef4444,#dc2626)">DR</div>
+                Dr. Raj
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card" data-cat="programming">
+          <div class="course-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">
+            ⚛️
+            <span class="badge badge-accent level-badge">Intermediate</span>
+          </div>
+          <div class="course-body">
+            <div class="course-category">Programming</div>
+            <h3>React 19 + Next.js 15 — Full-Stack Apps</h3>
+            <p>Server components, streaming, app router, Prisma, Auth.js — build production-grade applications.</p>
+            <div class="course-meta">
+              <span>⏱️ 38 hours</span>
+              <span>📚 195 lessons</span>
+              <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.8</em></span>
+            </div>
+            <div class="course-footer">
+              <div>
+                <span class="course-price">$64 <span class="original">$249</span></span>
+              </div>
+              <div class="course-instructor">
+                <div class="instructor-avatar" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">TC</div>
+                T. Chen
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="course-card" data-cat="data">
+          <div class="course-thumb" style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff)">
+            🧠
+            <span class="badge badge-accent level-badge">Intermediate</span>
+          </div>
+          <div class="course-body">
+            <div class="course-category">Data Science</div>
+            <h3>SQL &amp; Database Design Bootcamp</h3>
+            <p>Master PostgreSQL, complex queries, window functions, indexing, and database architecture patterns.</p>
+            <div class="course-meta">
+              <span>⏱️ 24 hours</span>
+              <span>📚 120 lessons</span>
+              <span class="star-rating">★★★★☆ <em style="color:var(--muted)">4.6</em></span>
+            </div>
+            <div class="course-footer">
+              <div>
+                <span class="course-price">$39 <span class="original">$149</span></span>
+              </div>
+              <div class="course-instructor">
+                <div class="instructor-avatar" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">NB</div>
+                N. Brown
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="courses.html" class="btn btn-outline btn-lg">View All Courses →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ─────────────────────────────────────────────── -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Simple Process</span>
+        <h2>How It Works</h2>
+        <p>Start learning in 3 simple steps and transform your career.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Create Your Account</h3>
+          <p>Sign up for free in under a minute. No credit card required to browse thousands of courses.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Choose a Course</h3>
+          <p>Browse our catalog, read reviews, and preview lessons before enrolling in the course that fits you.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Learn at Your Pace</h3>
+          <p>Watch HD videos, complete exercises, and work on real projects — on any device, any time.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h3>Earn a Certificate</h3>
+          <p>Pass the final assessment to earn a shareable certificate recognized by top employers worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Instructors ───────────────────────────────────────────────── -->
+  <section class="instructors" id="instructors">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Expert Educators</span>
+        <h2>Meet Our Top Instructors</h2>
+        <p>Learn from industry veterans with real-world experience at leading tech companies.</p>
+      </div>
+      <div class="instructors-grid">
+        <div class="instructor-card">
+          <div class="instructor-photo">👨‍💻</div>
+          <h3>Jonas Kramer</h3>
+          <div class="role">JavaScript Expert</div>
+          <div class="stats">
+            <span>⭐ 4.9</span>
+            <span>📚 12 courses</span>
+            <span>👥 48K students</span>
+          </div>
+        </div>
+        <div class="instructor-card">
+          <div class="instructor-photo">👩‍🔬</div>
+          <h3>Amelia Park</h3>
+          <div class="role">Data Scientist @ Google</div>
+          <div class="stats">
+            <span>⭐ 4.8</span>
+            <span>📚 8 courses</span>
+            <span>👥 35K students</span>
+          </div>
+        </div>
+        <div class="instructor-card">
+          <div class="instructor-photo">👩‍🎨</div>
+          <h3>Maya Larsson</h3>
+          <div class="role">Senior UX Designer</div>
+          <div class="stats">
+            <span>⭐ 4.7</span>
+            <span>📚 6 courses</span>
+            <span>👥 22K students</span>
+          </div>
+        </div>
+        <div class="instructor-card">
+          <div class="instructor-photo">👨‍🏫</div>
+          <h3>Dr. Arjun Rao</h3>
+          <div class="role">AI Researcher @ MIT</div>
+          <div class="stats">
+            <span>⭐ 4.9</span>
+            <span>📚 10 courses</span>
+            <span>👥 61K students</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ──────────────────────────────────────────────── -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Student Stories</span>
+        <h2>What Our Learners Say</h2>
+        <p>Join thousands of students who have transformed their careers with CodeMie.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="star-rating" style="margin-bottom:.75rem">★★★★★</div>
+          <p class="quote">"CodeMie helped me land a front-end engineer role at a startup within 6 months of starting the JavaScript bootcamp. The project-based learning was key!"</p>
+          <div class="testimonial-author">
+            <div class="t-avatar">🧑</div>
+            <div>
+              <div class="t-name">Carlos M.</div>
+              <div class="t-role">Front-End Engineer, San Francisco</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="star-rating" style="margin-bottom:.75rem">★★★★★</div>
+          <p class="quote">"The Data Science track gave me the skills to transition from marketing to analytics. Best investment I've ever made in my education."</p>
+          <div class="testimonial-author">
+            <div class="t-avatar">👩</div>
+            <div>
+              <div class="t-name">Priya S.</div>
+              <div class="t-role">Data Analyst, London</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="star-rating" style="margin-bottom:.75rem">★★★★★</div>
+          <p class="quote">"I took the UI/UX course as a complete beginner. Three months later I had a job offer as a product designer. The quality is outstanding!"</p>
+          <div class="testimonial-author">
+            <div class="t-avatar">🧑</div>
+            <div>
+              <div class="t-name">Tunde O.</div>
+              <div class="t-role">Product Designer, Lagos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ───────────────────────────────────────────────────── -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Simple Pricing</span>
+        <h2>Choose Your Plan</h2>
+        <p>Flexible plans for individual learners and teams. Cancel anytime.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <div class="plan-price">$0 <span>/ month</span></div>
+          <p class="plan-desc">Perfect for exploring the platform.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> 50+ free courses</li>
+            <li><span class="check">✓</span> Community forums</li>
+            <li><span class="check">✓</span> Mobile app access</li>
+            <li><span class="cross" style="color:var(--muted)">—</span> Certificates</li>
+            <li><span class="cross" style="color:var(--muted)">—</span> Offline downloads</li>
+            <li><span class="cross" style="color:var(--muted)">—</span> 1-on-1 mentoring</li>
+          </ul>
+          <a href="dashboard.html" class="btn btn-outline" style="width:100%;justify-content:center">Get Started Free</a>
+        </div>
+        <div class="pricing-card popular">
+          <div class="popular-tag">MOST POPULAR</div>
+          <h3>Pro</h3>
+          <div class="plan-price">$29 <span>/ month</span></div>
+          <p class="plan-desc">Everything you need to advance your skills.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> 10,000+ courses (all)</li>
+            <li><span class="check">✓</span> Verified certificates</li>
+            <li><span class="check">✓</span> Offline downloads</li>
+            <li><span class="check">✓</span> Ad-free experience</li>
+            <li><span class="check">✓</span> Priority support</li>
+            <li><span class="cross" style="color:var(--muted)">—</span> 1-on-1 mentoring</li>
+          </ul>
+          <a href="dashboard.html" class="btn btn-primary" style="width:100%;justify-content:center">Start Pro Trial</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Teams</h3>
+          <div class="plan-price">$19 <span>/ seat / mo</span></div>
+          <p class="plan-desc">For organisations training 5+ people.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> All Pro features</li>
+            <li><span class="check">✓</span> Team analytics dashboard</li>
+            <li><span class="check">✓</span> Custom learning paths</li>
+            <li><span class="check">✓</span> SSO &amp; admin portal</li>
+            <li><span class="check">✓</span> 1-on-1 mentoring</li>
+            <li><span class="check">✓</span> Dedicated account manager</li>
+          </ul>
+          <a href="#" class="btn btn-outline" style="width:100%;justify-content:center" onclick="showToast('📞 Our team will contact you shortly!')">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Banner ────────────────────────────────────────────────── -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Start Your Learning Journey?</h2>
+      <p>Join 50,000+ learners. First 7 days are completely free — no credit card needed.</p>
+      <a href="courses.html" class="btn btn-lg">🚀 Start Learning Today</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">🎓</div>
+            CodeMie
+          </div>
+          <p>The world's leading e-learning platform. Empowering learners everywhere with world-class education.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">💼</a>
+            <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+            <a href="#" class="social-btn" aria-label="GitHub">🐱</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="courses.html">Browse Courses</a></li>
+            <li><a href="index.html#instructors">Instructors</a></li>
+            <li><a href="dashboard.html">My Dashboard</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CodeMie Inc. All rights reserved.</span>
+        <span>Built for the SDLC Capstone Demo</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Toast ─────────────────────────────────────────────────────── -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses – CodeMie</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🎓</div>
+        CodeMie
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html" class="active">Courses</a></li>
+        <li><a href="index.html#instructors">Instructors</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn btn-outline">Sign In</a>
+        <a href="dashboard.html" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ────────────────────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="container">
+      <h1>📚 All Courses</h1>
+      <p>10,000+ courses in programming, design, data science, and more.</p>
+    </div>
+  </div>
+
+  <!-- ── Main Layout ──────────────────────────────────────────────── -->
+  <div class="courses-page-layout">
+    <div class="container courses-page-inner">
+
+      <!-- Sidebar Filters -->
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h4>Category</h4>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Programming</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Design</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Data Science</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> AI / ML</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Mobile Dev</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Cloud &amp; DevOps</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Business</label>
+        </div>
+        <div class="sidebar-section">
+          <h4>Level</h4>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Beginner</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Intermediate</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Advanced</label>
+        </div>
+        <div class="sidebar-section">
+          <h4>Price</h4>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Free</label>
+          <label><input type="checkbox" checked onchange="applyFilters()"> Paid</label>
+        </div>
+        <div class="sidebar-section">
+          <h4>Rating</h4>
+          <label><input type="checkbox" onchange="applyFilters()"> ★★★★★ 4.5+</label>
+          <label><input type="checkbox" onchange="applyFilters()"> ★★★★☆ 4.0+</label>
+          <label><input type="checkbox" onchange="applyFilters()"> ★★★☆☆ 3.0+</label>
+        </div>
+        <div class="sidebar-section">
+          <h4>Duration</h4>
+          <label><input type="checkbox" onchange="applyFilters()"> Under 5 hours</label>
+          <label><input type="checkbox" onchange="applyFilters()"> 5 – 20 hours</label>
+          <label><input type="checkbox" onchange="applyFilters()"> 20 – 40 hours</label>
+          <label><input type="checkbox" onchange="applyFilters()"> 40+ hours</label>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="showToast('✅ Filters applied!')">Apply Filters</button>
+      </aside>
+
+      <!-- Course Listing -->
+      <div>
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" placeholder="Search courses, instructors, topics…" id="searchInput" oninput="liveSearch(this.value)" />
+        </div>
+        <div class="sort-bar">
+          <span id="countLabel">Showing 12 courses</span>
+          <select onchange="showToast('🔄 Results sorted!')">
+            <option>Most Popular</option>
+            <option>Highest Rated</option>
+            <option>Newest</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+          </select>
+        </div>
+
+        <div class="courses-grid" id="allCoursesGrid">
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">🖥️
+              <span class="badge badge-green level-badge">Beginner</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Programming</div>
+              <h3>The Complete JavaScript Bootcamp 2025</h3>
+              <p>Master modern JS, ES2024, async patterns, and build 15 real projects.</p>
+              <div class="course-meta">
+                <span>⏱️ 42h</span><span>📚 210 lessons</span>
+                <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.9</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$49 <span class="original">$199</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">📊
+              <span class="badge badge-accent level-badge">Intermediate</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Data Science</div>
+              <h3>Python for Data Science &amp; Machine Learning</h3>
+              <p>pandas, NumPy, Scikit-Learn — build end-to-end ML pipelines.</p>
+              <div class="course-meta">
+                <span>⏱️ 36h</span><span>📚 185 lessons</span>
+                <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.8</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$59 <span class="original">$229</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">🎨
+              <span class="badge badge-green level-badge">Beginner</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Design</div>
+              <h3>UI/UX Design Mastery with Figma</h3>
+              <p>Design stunning interfaces and create interactive prototypes.</p>
+              <div class="course-meta">
+                <span>⏱️ 28h</span><span>📚 140 lessons</span>
+                <span class="star-rating">★★★★☆ <em style="color:var(--muted)">4.7</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$44 <span class="original">$179</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca)">🤖
+              <span class="badge badge-red level-badge">Advanced</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">AI / ML</div>
+              <h3>Deep Learning with PyTorch &amp; TensorFlow</h3>
+              <p>CNNs, RNNs, Transformers, GANs — implement state-of-the-art models.</p>
+              <div class="course-meta">
+                <span>⏱️ 52h</span><span>📚 260 lessons</span>
+                <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.9</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$79 <span class="original">$299</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">⚛️
+              <span class="badge badge-accent level-badge">Intermediate</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Programming</div>
+              <h3>React 19 + Next.js 15 — Full-Stack Apps</h3>
+              <p>Server components, app router, Prisma, Auth.js — production-grade apps.</p>
+              <div class="course-meta">
+                <span>⏱️ 38h</span><span>📚 195 lessons</span>
+                <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.8</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$64 <span class="original">$249</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff)">🗄️
+              <span class="badge badge-accent level-badge">Intermediate</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Data Science</div>
+              <h3>SQL &amp; Database Design Bootcamp</h3>
+              <p>PostgreSQL, window functions, indexing, and architecture patterns.</p>
+              <div class="course-meta">
+                <span>⏱️ 24h</span><span>📚 120 lessons</span>
+                <span class="star-rating">★★★★☆ <em style="color:var(--muted)">4.6</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$39 <span class="original">$149</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">☁️
+              <span class="badge badge-accent level-badge">Intermediate</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Cloud &amp; DevOps</div>
+              <h3>AWS Solutions Architect Certification</h3>
+              <p>EC2, S3, Lambda, VPC, IAM — prep for the SAA-C03 exam with practice tests.</p>
+              <div class="course-meta">
+                <span>⏱️ 30h</span><span>📚 160 lessons</span>
+                <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.8</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$69 <span class="original">$259</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">📱
+              <span class="badge badge-green level-badge">Beginner</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Mobile Dev</div>
+              <h3>Flutter &amp; Dart — Complete Mobile Development</h3>
+              <p>Build beautiful iOS and Android apps from scratch with Flutter 3.</p>
+              <div class="course-meta">
+                <span>⏱️ 34h</span><span>📚 175 lessons</span>
+                <span class="star-rating">★★★★☆ <em style="color:var(--muted)">4.7</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$54 <span class="original">$209</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#fef9c3,#fef08a)">🔐
+              <span class="badge badge-red level-badge">Advanced</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Cybersecurity</div>
+              <h3>Ethical Hacking &amp; Penetration Testing</h3>
+              <p>Network scanning, vulnerability assessment, OWASP Top 10, and CTF challenges.</p>
+              <div class="course-meta">
+                <span>⏱️ 46h</span><span>📚 230 lessons</span>
+                <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.9</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$74 <span class="original">$279</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">🐳
+              <span class="badge badge-accent level-badge">Intermediate</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Cloud &amp; DevOps</div>
+              <h3>Docker &amp; Kubernetes for Developers</h3>
+              <p>Containerise apps, orchestrate with K8s, CI/CD pipelines with GitHub Actions.</p>
+              <div class="course-meta">
+                <span>⏱️ 26h</span><span>📚 130 lessons</span>
+                <span class="star-rating">★★★★★ <em style="color:var(--muted)">4.8</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$59 <span class="original">$219</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#c4b5fd)">🦀
+              <span class="badge badge-red level-badge">Advanced</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Programming</div>
+              <h3>Rust Programming — Systems &amp; WebAssembly</h3>
+              <p>Memory safety, ownership, lifetimes, async Rust, and WASM targets.</p>
+              <div class="course-meta">
+                <span>⏱️ 40h</span><span>📚 200 lessons</span>
+                <span class="star-rating">★★★★☆ <em style="color:var(--muted)">4.7</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$67 <span class="original">$249</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#fef3c7,#fcd34d)">📈
+              <span class="badge badge-green level-badge">Beginner</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Business</div>
+              <h3>Digital Marketing Fundamentals</h3>
+              <p>SEO, Google Ads, social media strategy, email marketing, and analytics.</p>
+              <div class="course-meta">
+                <span>⏱️ 18h</span><span>📚 90 lessons</span>
+                <span class="star-rating">★★★★☆ <em style="color:var(--muted)">4.6</em></span>
+              </div>
+              <div class="course-footer">
+                <span class="course-price">$29 <span class="original">$119</span></span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div style="text-align:center;margin-top:2.5rem">
+          <button class="btn btn-outline btn-lg" onclick="showToast('📄 Loading more courses…')">Load More Courses</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-icon">🎓</div>CodeMie</div>
+          <p>The world's leading e-learning platform.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="courses.html">Browse Courses</a></li>
+            <li><a href="dashboard.html">My Dashboard</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CodeMie Inc. All rights reserved.</span>
+        <a href="index.html" style="color:var(--primary)">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

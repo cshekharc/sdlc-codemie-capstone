@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – CodeMie</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🎓</div>
+        CodeMie
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="index.html#instructors">Instructors</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <span style="font-size:.85rem;color:var(--muted)">👋 Hi, Alex!</span>
+        <a href="index.html" class="btn btn-outline">Sign Out</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Dashboard Layout ─────────────────────────────────────────── -->
+  <div class="dash-layout">
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar">
+      <div class="user-info">
+        <div class="dash-avatar">👨‍🎓</div>
+        <strong>Alex Johnson</strong>
+        <span>Pro Member · Joined Jan 2025</span>
+      </div>
+      <nav class="dash-nav">
+        <a href="#overview" class="active" onclick="switchTab(event,'overview')">
+          <span class="nav-icon">📊</span> Overview
+        </a>
+        <a href="#my-courses" onclick="switchTab(event,'my-courses')">
+          <span class="nav-icon">📚</span> My Courses
+        </a>
+        <a href="#certificates" onclick="switchTab(event,'certificates')">
+          <span class="nav-icon">🏆</span> Certificates
+        </a>
+        <a href="#wishlist" onclick="switchTab(event,'wishlist')">
+          <span class="nav-icon">❤️</span> Wishlist
+        </a>
+        <a href="#messages" onclick="switchTab(event,'messages')">
+          <span class="nav-icon">💬</span> Messages
+          <span class="badge badge-primary" style="margin-left:auto">3</span>
+        </a>
+        <a href="#settings" onclick="switchTab(event,'settings')">
+          <span class="nav-icon">⚙️</span> Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dash-main">
+
+      <!-- ── Overview Tab ─────────────────────────────────────────── -->
+      <div id="tab-overview">
+        <div class="dash-header">
+          <h1>Good morning, Alex! 👋</h1>
+          <p>You have 3 courses in progress. Keep up the great work!</p>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="dash-cards">
+          <div class="dash-card">
+            <div class="dash-card-icon purple">📚</div>
+            <div>
+              <strong>8</strong>
+              <span>Enrolled Courses</span>
+            </div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-icon green">✅</div>
+            <div>
+              <strong>3</strong>
+              <span>Completed</span>
+            </div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-icon amber">🏆</div>
+            <div>
+              <strong>3</strong>
+              <span>Certificates</span>
+            </div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-icon blue">⏱️</div>
+            <div>
+              <strong>142h</strong>
+              <span>Hours Learned</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enrolled + Achievements -->
+        <div class="dash-row">
+          <div class="dash-widget">
+            <div class="widget-title">
+              Courses In Progress
+              <a href="courses.html">Browse more →</a>
+            </div>
+
+            <div class="enrolled-course-item">
+              <div class="enrolled-thumb" style="background:#ede9fe">🖥️</div>
+              <div class="enrolled-info">
+                <strong>JavaScript Bootcamp 2025</strong>
+                <span>Jonas Kramer · Last watched 2h ago</span>
+              </div>
+              <div class="enrolled-progress">
+                <label>78%</label>
+                <div class="bar"><div class="fill" style="width:78%"></div></div>
+              </div>
+            </div>
+
+            <div class="enrolled-course-item">
+              <div class="enrolled-thumb" style="background:#dbeafe">⚛️</div>
+              <div class="enrolled-info">
+                <strong>React 19 + Next.js 15</strong>
+                <span>T. Chen · Last watched yesterday</span>
+              </div>
+              <div class="enrolled-progress">
+                <label>45%</label>
+                <div class="bar"><div class="fill" style="width:45%"></div></div>
+              </div>
+            </div>
+
+            <div class="enrolled-course-item">
+              <div class="enrolled-thumb" style="background:#d1fae5">📊</div>
+              <div class="enrolled-info">
+                <strong>Python for Data Science</strong>
+                <span>Amelia Park · Last watched 3 days ago</span>
+              </div>
+              <div class="enrolled-progress">
+                <label>22%</label>
+                <div class="bar"><div class="fill" style="width:22%"></div></div>
+              </div>
+            </div>
+
+            <div class="enrolled-course-item">
+              <div class="enrolled-thumb" style="background:#fee2e2">🤖</div>
+              <div class="enrolled-info">
+                <strong>Deep Learning with PyTorch</strong>
+                <span>Dr. Rao · Just started</span>
+              </div>
+              <div class="enrolled-progress">
+                <label>5%</label>
+                <div class="bar"><div class="fill" style="width:5%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-widget">
+            <div class="widget-title">Recent Achievements</div>
+            <div class="achievement-list">
+              <div class="achievement-item">
+                <span class="achievement-icon">🥇</span>
+                <div>
+                  <strong>7-Day Streak!</strong>
+                  <span>Learned 7 days in a row</span>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">🎓</span>
+                <div>
+                  <strong>Certificate Earned</strong>
+                  <span>HTML &amp; CSS Fundamentals</span>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">⚡</span>
+                <div>
+                  <strong>Fast Learner</strong>
+                  <span>Completed 5 lessons in 1 day</span>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-icon">💯</span>
+                <div>
+                  <strong>Perfect Score</strong>
+                  <span>JS Fundamentals Quiz — 100%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calendar -->
+        <div class="dash-row" style="grid-template-columns:1fr 1fr">
+          <div class="dash-widget calendar-widget">
+            <div class="widget-title">August 2026 <span style="font-weight:400;font-size:.8rem;color:var(--muted)">Study Calendar</span></div>
+            <div class="calendar-grid" id="calendarGrid">
+              <!-- Generated by JS -->
+            </div>
+          </div>
+          <div class="dash-widget">
+            <div class="widget-title">Weekly Goal</div>
+            <div style="text-align:center;padding:1rem 0">
+              <svg viewBox="0 0 120 120" width="120" height="120" style="display:block;margin:0 auto 1rem">
+                <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="12"/>
+                <circle cx="60" cy="60" r="50" fill="none" stroke="#4f46e5" stroke-width="12"
+                  stroke-dasharray="314" stroke-dashoffset="94"
+                  stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                <text x="60" y="65" text-anchor="middle" font-size="20" font-weight="800" fill="#1e293b">70%</text>
+              </svg>
+              <p style="font-size:.9rem;color:var(--muted)">7 of 10 target hours completed this week</p>
+              <div style="margin-top:1rem;display:flex;justify-content:space-around">
+                <div style="text-align:center">
+                  <strong style="display:block;font-size:1.2rem;color:var(--primary)">7h</strong>
+                  <span style="font-size:.75rem;color:var(--muted)">Completed</span>
+                </div>
+                <div style="text-align:center">
+                  <strong style="display:block;font-size:1.2rem;color:var(--accent)">3h</strong>
+                  <span style="font-size:.75rem;color:var(--muted)">Remaining</span>
+                </div>
+                <div style="text-align:center">
+                  <strong style="display:block;font-size:1.2rem;color:var(--green)">4</strong>
+                  <span style="font-size:.75rem;color:var(--muted)">Day streak</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── My Courses Tab ───────────────────────────────────────── -->
+      <div id="tab-my-courses" style="display:none">
+        <div class="dash-header">
+          <h1>My Courses</h1>
+          <p>All your enrolled courses in one place.</p>
+        </div>
+        <div class="courses-grid">
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">🖥️
+              <span class="badge badge-primary level-badge">In Progress</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Programming</div>
+              <h3>The Complete JavaScript Bootcamp 2025</h3>
+              <div style="margin:.75rem 0">
+                <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-bottom:.3rem"><span>Progress</span><span>78%</span></div>
+                <div style="height:6px;background:var(--border);border-radius:999px"><div style="height:100%;width:78%;background:var(--primary);border-radius:999px"></div></div>
+              </div>
+              <div class="course-footer">
+                <span style="font-size:.82rem;color:var(--muted)">163 / 210 lessons</span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="showToast('▶️ Resuming course…')">Continue</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">⚛️
+              <span class="badge badge-primary level-badge">In Progress</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Programming</div>
+              <h3>React 19 + Next.js 15 — Full-Stack Apps</h3>
+              <div style="margin:.75rem 0">
+                <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-bottom:.3rem"><span>Progress</span><span>45%</span></div>
+                <div style="height:6px;background:var(--border);border-radius:999px"><div style="height:100%;width:45%;background:var(--primary);border-radius:999px"></div></div>
+              </div>
+              <div class="course-footer">
+                <span style="font-size:.82rem;color:var(--muted)">88 / 195 lessons</span>
+                <button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="showToast('▶️ Resuming course…')">Continue</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-thumb" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">✅
+              <span class="badge badge-green level-badge">Completed</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">Programming</div>
+              <h3>HTML &amp; CSS Fundamentals</h3>
+              <div style="margin:.75rem 0">
+                <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-bottom:.3rem"><span>Progress</span><span>100%</span></div>
+                <div style="height:6px;background:var(--border);border-radius:999px"><div style="height:100%;width:100%;background:var(--green);border-radius:999px"></div></div>
+              </div>
+              <div class="course-footer">
+                <span style="font-size:.82rem;color:var(--muted)">80 / 80 lessons</span>
+                <button class="btn btn-outline" style="padding:.4rem .9rem;font-size:.8rem;border-color:var(--green);color:var(--green)" onclick="showToast('🏆 Certificate downloaded!')">Get Certificate</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- ── Certificates Tab ─────────────────────────────────────── -->
+      <div id="tab-certificates" style="display:none">
+        <div class="dash-header">
+          <h1>My Certificates</h1>
+          <p>Showcase your verified achievements.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem">
+
+          <div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-radius:16px;padding:2rem;position:relative;overflow:hidden">
+            <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:rgba(255,255,255,.08);border-radius:50%"></div>
+            <div style="font-size:2.5rem;margin-bottom:.75rem">🏆</div>
+            <div style="font-size:.75rem;opacity:.8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem">Certificate of Completion</div>
+            <h3 style="font-size:1.1rem;margin-bottom:.5rem">HTML &amp; CSS Fundamentals</h3>
+            <div style="font-size:.8rem;opacity:.8;margin-bottom:1.2rem">Issued: March 15, 2026 · Instructor: Jonas K.</div>
+            <button class="btn" style="background:rgba(255,255,255,.2);color:#fff;border-color:transparent;font-size:.82rem" onclick="showToast('📥 Certificate downloaded!')">Download PDF</button>
+          </div>
+
+          <div style="background:linear-gradient(135deg,#10b981,#059669);color:#fff;border-radius:16px;padding:2rem;position:relative;overflow:hidden">
+            <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:rgba(255,255,255,.08);border-radius:50%"></div>
+            <div style="font-size:2.5rem;margin-bottom:.75rem">🏅</div>
+            <div style="font-size:.75rem;opacity:.8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem">Certificate of Completion</div>
+            <h3 style="font-size:1.1rem;margin-bottom:.5rem">Git &amp; GitHub for Everyone</h3>
+            <div style="font-size:.8rem;opacity:.8;margin-bottom:1.2rem">Issued: January 28, 2026 · Instructor: N. Brown</div>
+            <button class="btn" style="background:rgba(255,255,255,.2);color:#fff;border-color:transparent;font-size:.82rem" onclick="showToast('📥 Certificate downloaded!')">Download PDF</button>
+          </div>
+
+          <div style="background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:16px;padding:2rem;position:relative;overflow:hidden">
+            <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:rgba(255,255,255,.08);border-radius:50%"></div>
+            <div style="font-size:2.5rem;margin-bottom:.75rem">🎖️</div>
+            <div style="font-size:.75rem;opacity:.8;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem">Certificate of Completion</div>
+            <h3 style="font-size:1.1rem;margin-bottom:.5rem">Python Basics for Beginners</h3>
+            <div style="font-size:.8rem;opacity:.8;margin-bottom:1.2rem">Issued: December 10, 2025 · Instructor: Amelia P.</div>
+            <button class="btn" style="background:rgba(255,255,255,.2);color:#fff;border-color:transparent;font-size:.82rem" onclick="showToast('📥 Certificate downloaded!')">Download PDF</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── Messages Tab ─────────────────────────────────────────── -->
+      <div id="tab-messages" style="display:none">
+        <div class="dash-header">
+          <h1>Messages</h1>
+          <p>Stay in touch with your instructors.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+          <div style="display:flex;height:500px">
+            <!-- Contact list -->
+            <div style="width:260px;border-right:1px solid var(--border);overflow-y:auto">
+              <div style="padding:1rem;border-bottom:1px solid var(--border);background:var(--bg)">
+                <input type="text" placeholder="Search messages…" style="width:100%;padding:.5rem .8rem;border:1.5px solid var(--border);border-radius:8px;outline:none;font-size:.85rem">
+              </div>
+              <div id="msgContacts">
+                <div class="msg-contact active-contact" onclick="selectContact(this,'Jonas Kramer','JS Bootcamp Instructor')" style="padding:.9rem 1rem;display:flex;gap:.75rem;align-items:center;cursor:pointer;background:#ede9fe;border-bottom:1px solid var(--border)">
+                  <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;color:#fff;font-weight:700;flex-shrink:0">JK</div>
+                  <div style="min-width:0">
+                    <strong style="font-size:.88rem;display:block">Jonas Kramer</strong>
+                    <span style="font-size:.75rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block">Great question! Let me explain…</span>
+                  </div>
+                  <span class="badge badge-primary" style="flex-shrink:0;margin-left:auto">2</span>
+                </div>
+                <div class="msg-contact" onclick="selectContact(this,'Amelia Park','Data Science Instructor')" style="padding:.9rem 1rem;display:flex;gap:.75rem;align-items:center;cursor:pointer;border-bottom:1px solid var(--border)">
+                  <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:grid;place-items:center;color:#fff;font-weight:700;flex-shrink:0">AP</div>
+                  <div style="min-width:0">
+                    <strong style="font-size:.88rem;display:block">Amelia Park</strong>
+                    <span style="font-size:.75rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block">Check out the notebook I shared…</span>
+                  </div>
+                  <span class="badge badge-primary" style="flex-shrink:0;margin-left:auto">1</span>
+                </div>
+                <div class="msg-contact" onclick="selectContact(this,'Support Team','CodeMie Help Desk')" style="padding:.9rem 1rem;display:flex;gap:.75rem;align-items:center;cursor:pointer;border-bottom:1px solid var(--border)">
+                  <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:grid;place-items:center;color:#fff;font-weight:700;flex-shrink:0">CS</div>
+                  <div style="min-width:0">
+                    <strong style="font-size:.88rem;display:block">Support Team</strong>
+                    <span style="font-size:.75rem;color:var(--muted)">Your issue has been resolved.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Chat panel -->
+            <div style="flex:1;display:flex;flex-direction:column">
+              <div style="padding:1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.75rem">
+                <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;color:#fff;font-weight:700">JK</div>
+                <div id="chatName">
+                  <strong style="display:block;font-size:.92rem">Jonas Kramer</strong>
+                  <span style="font-size:.75rem;color:var(--muted)">JS Bootcamp Instructor · Online</span>
+                </div>
+              </div>
+              <div id="chatMessages" style="flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.75rem">
+                <div style="display:flex;gap:.6rem">
+                  <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;color:#fff;font-size:.7rem;font-weight:700;flex-shrink:0">JK</div>
+                  <div style="background:var(--bg);border:1px solid var(--border);border-radius:0 12px 12px 12px;padding:.65rem .9rem;font-size:.85rem;max-width:360px">
+                    Hi Alex! Great to see you enrolled in the bootcamp. Let me know if you have any questions on the async/await section — it trips people up! 😊
+                    <div style="font-size:.7rem;color:var(--muted);margin-top:.3rem">10:32 AM</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:.6rem;flex-direction:row-reverse">
+                  <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:grid;place-items:center;color:#fff;font-size:.7rem;font-weight:700;flex-shrink:0">AJ</div>
+                  <div style="background:var(--primary);color:#fff;border-radius:12px 0 12px 12px;padding:.65rem .9rem;font-size:.85rem;max-width:360px">
+                    Thanks Jonas! I'm stuck on Promise chaining vs async/await. Could you share an example?
+                    <div style="font-size:.7rem;opacity:.75;margin-top:.3rem">10:45 AM</div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:.6rem">
+                  <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;color:#fff;font-size:.7rem;font-weight:700;flex-shrink:0">JK</div>
+                  <div style="background:var(--bg);border:1px solid var(--border);border-radius:0 12px 12px 12px;padding:.65rem .9rem;font-size:.85rem;max-width:360px">
+                    Of course! I've added a bonus lecture in Section 12 that covers exactly this. Check it out and come back with any follow-up questions 👍
+                    <div style="font-size:.7rem;color:var(--muted);margin-top:.3rem">11:02 AM</div>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:1rem;border-top:1px solid var(--border);display:flex;gap:.75rem">
+                <input type="text" id="msgInput" placeholder="Type a message…" style="flex:1;padding:.6rem 1rem;border:1.5px solid var(--border);border-radius:8px;outline:none;font-size:.88rem" onkeydown="if(event.key==='Enter')sendMessage()">
+                <button class="btn btn-primary" onclick="sendMessage()" style="padding:.6rem 1.1rem">Send ↑</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Settings Tab ─────────────────────────────────────────── -->
+      <div id="tab-settings" style="display:none">
+        <div class="dash-header">
+          <h1>Account Settings</h1>
+          <p>Manage your profile and preferences.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+          <div class="dash-widget">
+            <div class="widget-title">Profile Information</div>
+            <form onsubmit="event.preventDefault();showToast('✅ Profile saved!')">
+              <div style="margin-bottom:1rem">
+                <label style="font-size:.83rem;font-weight:600;display:block;margin-bottom:.35rem">Full Name</label>
+                <input type="text" value="Alex Johnson" style="width:100%;padding:.6rem .9rem;border:1.5px solid var(--border);border-radius:8px;outline:none;font-size:.9rem">
+              </div>
+              <div style="margin-bottom:1rem">
+                <label style="font-size:.83rem;font-weight:600;display:block;margin-bottom:.35rem">Email Address</label>
+                <input type="email" value="alex@example.com" style="width:100%;padding:.6rem .9rem;border:1.5px solid var(--border);border-radius:8px;outline:none;font-size:.9rem">
+              </div>
+              <div style="margin-bottom:1rem">
+                <label style="font-size:.83rem;font-weight:600;display:block;margin-bottom:.35rem">Bio</label>
+                <textarea style="width:100%;padding:.6rem .9rem;border:1.5px solid var(--border);border-radius:8px;outline:none;font-size:.9rem;height:80px;resize:vertical">Aspiring full-stack developer passionate about learning and building products.</textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+          </div>
+          <div class="dash-widget">
+            <div class="widget-title">Notification Preferences</div>
+            <div style="display:flex;flex-direction:column;gap:1rem">
+              <label style="display:flex;align-items:center;justify-content:space-between;font-size:.88rem;cursor:pointer">
+                New course announcements
+                <input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;font-size:.88rem;cursor:pointer">
+                Weekly progress report
+                <input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;font-size:.88rem;cursor:pointer">
+                Instructor messages
+                <input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;font-size:.88rem;cursor:pointer">
+                Promotional emails
+                <input type="checkbox" style="accent-color:var(--primary);width:18px;height:18px">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;font-size:.88rem;cursor:pointer">
+                Learning reminders
+                <input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px">
+              </label>
+            </div>
+            <button class="btn btn-primary" style="margin-top:1.5rem" onclick="showToast('✅ Notification preferences saved!')">Save Preferences</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
