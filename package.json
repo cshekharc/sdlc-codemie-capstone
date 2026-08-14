@@ -1,0 +1,16 @@
+{
+  "name": "sdlc-codemie-capstone",
+  "private": true,
+  "description": "EnD-To-End tests (Playwright) for sdlc-codemie-capstone",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:smoke": "playwright test --project=smoke-chromium",
+    "test:regression": "playwright test --project=regression-chromium",
+    "test:report": "playwright show-report",
+    "playwright:install": "playwright install --with-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.46.0"
+  }
+}
