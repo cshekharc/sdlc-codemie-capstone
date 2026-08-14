@@ -40,24 +40,24 @@
         <strong>Alex Johnson</strong>
         <span>Pro Member · Joined Jan 2025</span>
       </div>
-      <nav class="dash-nav">
-        <a href="#overview" class="active" onclick="switchTab(event,'overview')">
+      <nav class="dash-nav" role="tablist" aria-label="Dashboard navigation">
+        <a id="tab-btn-overview" href="#overview" class="active" role="tab" aria-selected="true" tabindex="0" aria-controls="tab-overview" onclick="switchTab(event,'overview')">
           <span class="nav-icon">📊</span> Overview
         </a>
-        <a href="#my-courses" onclick="switchTab(event,'my-courses')">
+        <a id="tab-btn-my-courses" href="#my-courses" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-my-courses" onclick="switchTab(event,'my-courses')">
           <span class="nav-icon">📚</span> My Courses
         </a>
-        <a href="#certificates" onclick="switchTab(event,'certificates')">
+        <a id="tab-btn-certificates" href="#certificates" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-certificates" onclick="switchTab(event,'certificates')">
           <span class="nav-icon">🏆</span> Certificates
         </a>
-        <a href="#wishlist" onclick="switchTab(event,'wishlist')">
+        <a id="tab-btn-wishlist" href="#wishlist" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-wishlist" onclick="switchTab(event,'wishlist')">
           <span class="nav-icon">❤️</span> Wishlist
         </a>
-        <a href="#messages" onclick="switchTab(event,'messages')">
+        <a id="tab-btn-messages" href="#messages" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-messages" onclick="switchTab(event,'messages')">
           <span class="nav-icon">💬</span> Messages
           <span class="badge badge-primary" style="margin-left:auto">3</span>
         </a>
-        <a href="#settings" onclick="switchTab(event,'settings')">
+        <a id="tab-btn-settings" href="#settings" role="tab" aria-selected="false" tabindex="-1" aria-controls="tab-settings" onclick="switchTab(event,'settings')">
           <span class="nav-icon">⚙️</span> Settings
         </a>
       </nav>
@@ -67,7 +67,7 @@
     <main class="dash-main">
 
       <!-- ── Overview Tab ─────────────────────────────────────────── -->
-      <div id="tab-overview">
+      <div id="tab-overview" role="tabpanel" aria-labelledby="tab-btn-overview" tabindex="0">
         <div class="dash-header">
           <h1>Good morning, Alex! 👋</h1>
           <p>You have 3 courses in progress. Keep up the great work!</p>
@@ -236,13 +236,13 @@
       </div>
 
       <!-- ── My Courses Tab ───────────────────────────────────────── -->
-      <div id="tab-my-courses" style="display:none">
+      <div id="tab-my-courses" role="tabpanel" aria-labelledby="tab-btn-my-courses" tabindex="0" style="display:none">
         <div class="dash-header">
           <h1>My Courses</h1>
           <p>All your enrolled courses in one place.</p>
         </div>
         <div class="courses-grid">
-          <article class="course-card">
+          <article class="course-card" data-course-id="js-bootcamp-2025">
             <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">🖥️
               <span class="badge badge-primary level-badge">In Progress</span>
             </div>
@@ -260,7 +260,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="react-nextjs-15">
             <div class="course-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">⚛️
               <span class="badge badge-primary level-badge">In Progress</span>
             </div>
@@ -278,7 +278,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="html-css-fundamentals">
             <div class="course-thumb" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">✅
               <span class="badge badge-green level-badge">Completed</span>
             </div>
@@ -299,7 +299,7 @@
       </div>
 
       <!-- ── Certificates Tab ─────────────────────────────────────── -->
-      <div id="tab-certificates" style="display:none">
+      <div id="tab-certificates" role="tabpanel" aria-labelledby="tab-btn-certificates" tabindex="0" style="display:none">
         <div class="dash-header">
           <h1>My Certificates</h1>
           <p>Showcase your verified achievements.</p>
@@ -337,7 +337,7 @@
       </div>
 
       <!-- ── Messages Tab ─────────────────────────────────────────── -->
-      <div id="tab-messages" style="display:none">
+      <div id="tab-messages" role="tabpanel" aria-labelledby="tab-btn-messages" tabindex="0" style="display:none">
         <div class="dash-header">
           <h1>Messages</h1>
           <p>Stay in touch with your instructors.</p>
@@ -417,7 +417,7 @@
       </div>
 
       <!-- ── Settings Tab ─────────────────────────────────────────── -->
-      <div id="tab-settings" style="display:none">
+      <div id="tab-settings" role="tabpanel" aria-labelledby="tab-btn-settings" tabindex="0" style="display:none">
         <div class="dash-header">
           <h1>Account Settings</h1>
           <p>Manage your profile and preferences.</p>
@@ -470,10 +470,19 @@
         </div>
       </div>
 
+      <!-- ── Wishlist Tab ──────────────────────────────────────────── -->
+      <div id="tab-wishlist" role="tabpanel" aria-labelledby="tab-btn-wishlist" tabindex="0" style="display:none">
+        <div class="dash-header">
+          <h1>Wishlist</h1>
+          <p>Courses you've saved for later.</p>
+        </div>
+        <p style="color:var(--muted);padding:1rem 0">Your wishlist is empty. <a href="courses.html" style="color:var(--primary)">Browse courses →</a></p>
+      </div>
+
     </main>
   </div>
 
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <script src="js/main.js"></script>
 </body>
 </html>

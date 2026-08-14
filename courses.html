@@ -44,41 +44,41 @@
 
       <!-- Sidebar Filters -->
       <aside class="sidebar">
-        <div class="sidebar-section">
+        <div class="sidebar-section" data-filter="category">
           <h4>Category</h4>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Programming</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Design</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Data Science</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> AI / ML</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Mobile Dev</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Cloud &amp; DevOps</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Business</label>
+          <label><input type="checkbox" data-value="programming" checked onchange="applyFilters()"> Programming</label>
+          <label><input type="checkbox" data-value="design" checked onchange="applyFilters()"> Design</label>
+          <label><input type="checkbox" data-value="data" checked onchange="applyFilters()"> Data Science</label>
+          <label><input type="checkbox" data-value="ai" checked onchange="applyFilters()"> AI / ML</label>
+          <label><input type="checkbox" data-value="mobile" checked onchange="applyFilters()"> Mobile Dev</label>
+          <label><input type="checkbox" data-value="cloud" checked onchange="applyFilters()"> Cloud &amp; DevOps</label>
+          <label><input type="checkbox" data-value="business" checked onchange="applyFilters()"> Business</label>
         </div>
-        <div class="sidebar-section">
+        <div class="sidebar-section" data-filter="level">
           <h4>Level</h4>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Beginner</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Intermediate</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Advanced</label>
+          <label><input type="checkbox" data-value="beginner" checked onchange="applyFilters()"> Beginner</label>
+          <label><input type="checkbox" data-value="intermediate" checked onchange="applyFilters()"> Intermediate</label>
+          <label><input type="checkbox" data-value="advanced" checked onchange="applyFilters()"> Advanced</label>
         </div>
-        <div class="sidebar-section">
+        <div class="sidebar-section" data-filter="price">
           <h4>Price</h4>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Free</label>
-          <label><input type="checkbox" checked onchange="applyFilters()"> Paid</label>
+          <label><input type="checkbox" data-value="free" checked onchange="applyFilters()"> Free</label>
+          <label><input type="checkbox" data-value="paid" checked onchange="applyFilters()"> Paid</label>
         </div>
-        <div class="sidebar-section">
+        <div class="sidebar-section" data-filter="rating">
           <h4>Rating</h4>
-          <label><input type="checkbox" onchange="applyFilters()"> ★★★★★ 4.5+</label>
-          <label><input type="checkbox" onchange="applyFilters()"> ★★★★☆ 4.0+</label>
-          <label><input type="checkbox" onchange="applyFilters()"> ★★★☆☆ 3.0+</label>
+          <label><input type="checkbox" data-value="4.5" onchange="applyFilters()"> ★★★★★ 4.5+</label>
+          <label><input type="checkbox" data-value="4.0" onchange="applyFilters()"> ★★★★☆ 4.0+</label>
+          <label><input type="checkbox" data-value="3.0" onchange="applyFilters()"> ★★★☆☆ 3.0+</label>
         </div>
-        <div class="sidebar-section">
+        <div class="sidebar-section" data-filter="duration">
           <h4>Duration</h4>
-          <label><input type="checkbox" onchange="applyFilters()"> Under 5 hours</label>
-          <label><input type="checkbox" onchange="applyFilters()"> 5 – 20 hours</label>
-          <label><input type="checkbox" onchange="applyFilters()"> 20 – 40 hours</label>
-          <label><input type="checkbox" onchange="applyFilters()"> 40+ hours</label>
+          <label><input type="checkbox" data-value="under-5" onchange="applyFilters()"> Under 5 hours</label>
+          <label><input type="checkbox" data-value="5-20" onchange="applyFilters()"> 5 – 20 hours</label>
+          <label><input type="checkbox" data-value="20-40" onchange="applyFilters()"> 20 – 40 hours</label>
+          <label><input type="checkbox" data-value="40+" onchange="applyFilters()"> 40+ hours</label>
         </div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="showToast('✅ Filters applied!')">Apply Filters</button>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="applyFilters();showToast('✅ Filters applied!')">Apply Filters</button>
       </aside>
 
       <!-- Course Listing -->
@@ -100,7 +100,7 @@
 
         <div class="courses-grid" id="allCoursesGrid">
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="js-bootcamp-2025" data-cat="programming" data-level="beginner" data-price="paid" data-rating="4.9" data-duration="42">
             <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">🖥️
               <span class="badge badge-green level-badge">Beginner</span>
             </div>
@@ -119,7 +119,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="python-ds-ml" data-cat="data" data-level="intermediate" data-price="paid" data-rating="4.8" data-duration="36">
             <div class="course-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">📊
               <span class="badge badge-accent level-badge">Intermediate</span>
             </div>
@@ -138,7 +138,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="uiux-figma" data-cat="design" data-level="beginner" data-price="paid" data-rating="4.7" data-duration="28">
             <div class="course-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">🎨
               <span class="badge badge-green level-badge">Beginner</span>
             </div>
@@ -157,7 +157,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="deep-learning-pytorch" data-cat="ai" data-level="advanced" data-price="paid" data-rating="4.9" data-duration="52">
             <div class="course-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca)">🤖
               <span class="badge badge-red level-badge">Advanced</span>
             </div>
@@ -176,7 +176,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="react-nextjs-15" data-cat="programming" data-level="intermediate" data-price="paid" data-rating="4.8" data-duration="38">
             <div class="course-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">⚛️
               <span class="badge badge-accent level-badge">Intermediate</span>
             </div>
@@ -195,7 +195,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="sql-db-design" data-cat="data" data-level="intermediate" data-price="paid" data-rating="4.6" data-duration="24">
             <div class="course-thumb" style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff)">🗄️
               <span class="badge badge-accent level-badge">Intermediate</span>
             </div>
@@ -214,7 +214,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="aws-solutions" data-cat="cloud" data-level="intermediate" data-price="paid" data-rating="4.8" data-duration="30">
             <div class="course-thumb" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">☁️
               <span class="badge badge-accent level-badge">Intermediate</span>
             </div>
@@ -233,7 +233,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="flutter-dart" data-cat="mobile" data-level="beginner" data-price="paid" data-rating="4.7" data-duration="34">
             <div class="course-thumb" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">📱
               <span class="badge badge-green level-badge">Beginner</span>
             </div>
@@ -252,7 +252,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="ethical-hacking" data-cat="cybersecurity" data-level="advanced" data-price="paid" data-rating="4.9" data-duration="46">
             <div class="course-thumb" style="background:linear-gradient(135deg,#fef9c3,#fef08a)">🔐
               <span class="badge badge-red level-badge">Advanced</span>
             </div>
@@ -271,7 +271,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="docker-k8s" data-cat="cloud" data-level="intermediate" data-price="paid" data-rating="4.8" data-duration="26">
             <div class="course-thumb" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">🐳
               <span class="badge badge-accent level-badge">Intermediate</span>
             </div>
@@ -290,7 +290,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="rust-wasm" data-cat="programming" data-level="advanced" data-price="paid" data-rating="4.7" data-duration="40">
             <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#c4b5fd)">🦀
               <span class="badge badge-red level-badge">Advanced</span>
             </div>
@@ -309,7 +309,7 @@
             </div>
           </article>
 
-          <article class="course-card">
+          <article class="course-card" data-course-id="digital-marketing" data-cat="business" data-level="beginner" data-price="paid" data-rating="4.6" data-duration="18">
             <div class="course-thumb" style="background:linear-gradient(135deg,#fef3c7,#fcd34d)">📈
               <span class="badge badge-green level-badge">Beginner</span>
             </div>
@@ -377,7 +377,7 @@
     </div>
   </footer>
 
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <script src="js/main.js"></script>
 </body>
 </html>
