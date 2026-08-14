@@ -1,5 +1,5 @@
-/* ── Storage module (CAP-20) ─────────────────────────────────────── */
-const STORE_KEY = 'codemie_v1';
+/* ── Storage module (CAP-20) ────────────────────────────────────────── */
+const STORE_KEY = 'codomie_v1';
 const STORE_VER = 1;
 
 function getStore() {
@@ -28,10 +28,10 @@ function _migrate(data) {
 }
 
 function _slugify(str) {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^|--|$)/g, '');
 }
 
-/* ── Toast (CAP-21: aria-live is set in HTML) ───────────────────── */
+/* ── Toast (CAP-21: aria-live is set in HTML) ─────────── */
 function showToast(msg) {
   const t = document.getElementById('toast');
   if (!t) return;
@@ -41,7 +41,7 @@ function showToast(msg) {
   t._timer = setTimeout(() => t.classList.remove('show'), 3200);
 }
 
-/* ── Course filter — home page ─────────────────────────────────── */
+/* ─────────────────────────────── */
 function filterCourses(btn, cat) {
   document.querySelectorAll('.courses-filter .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -51,15 +51,17 @@ function filterCourses(btn, cat) {
   });
 }
 
-/* ── Enroll button (CAP-20) ─────────────────────────────────────── */
+/* ───────────── */
 function enrollCourse(btn) {
   const card = btn.closest('.course-card');
-  const title = card.querySelector('h3').textContent.trim();
+  if (!card) return\n
+  const h3 = card.querySelector('h3');
+  const title = h3 ? h3.textContent.trim() : 'Untitled course';
   const courseId = card.dataset.courseId || _slugify(title);
 
   const state = getStore();
   if (state.enrollments.find(e => e.courseId === courseId)) {
-    showToast(`ℹ️ Already enrolled in "${title.slice(0, 40)}"`);
+    showToast(`ℸ️ Already enrolled in \"${title.slice(0, 40)}\");
     _markEnrolledBtn(btn);
     return;
   }
@@ -74,7 +76,7 @@ function enrollCourse(btn) {
   saveStore(state);
 
   _markEnrolledBtn(btn);
-  showToast(`🎉 You enrolled in "${title.slice(0, 40)}…"`);
+  showToast(🎉 You enrolled in \"${title.slice(0, 40)}…\");
 }
 
 function _markEnrolledBtn(btn) {
@@ -83,7 +85,7 @@ function _markEnrolledBtn(btn) {
   btn.style.background = 'var(--green)';
 }
 
-/* ── Live search — courses page ────────────────────────────────── */
+/* ──────────────────────────── */
 function liveSearch(query) {
   const q = query.toLowerCase();
   const cards = document.querySelectorAll('#allCoursesGrid .course-card');
@@ -98,10 +100,10 @@ function liveSearch(query) {
 }
 
 function applyFilters() {
-  showToast('ℹ️ Filter functionality coming soon');
+  showToast('ℸ️ Filter functionality coming soon');
 }
 
-/* ── Dashboard tab switching (CAP-22 + CAP-20) ──────────────────── */
+/* �────────────────────── */
 function switchTab(e, tabId) {
   e.preventDefault();
   _activateTab(tabId);
@@ -124,7 +126,7 @@ function _activateTab(tabId) {
   });
 }
 
-/* ── Messaging (CAP-20: persists messages) ──────────────────────── */
+/* ────────────────────── */
 function sendMessage() {
   const input = document.getElementById('msgInput');
   if (!input || !input.value.trim()) return;
@@ -144,7 +146,7 @@ function sendMessage() {
   div.style.cssText = 'display:flex;gap:.6rem;flex-direction:row-reverse';
   div.innerHTML = `
     <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:grid;place-items:center;color:#fff;font-size:.7rem;font-weight:700;flex-shrink:0">AJ</div>
-    <div style="background:var(--primary);color:#fff;border-radius:12px 0 12px 12px;padding:.65rem .9rem;font-size:.85rem;max-width:360px">
+    <div style="background:var(--primary);color:#fff;border-radius:12px 012px 12px 12px;padding:.65rem .9rem;font-size:.85rem;max-width:360px">
       ${escapeHtml(text)}
       <div style="font-size:.7rem;opacity:.75;margin-top:.3rem">${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
     </div>`;
@@ -158,8 +160,7 @@ function sendMessage() {
     reply.innerHTML = `
       <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;color:#fff;font-size:.7rem;font-weight:700;flex-shrink:0">JK</div>
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:0 12px 12px 12px;padding:.65rem .9rem;font-size:.85rem;max-width:360px">
-        Thanks for your message! I'll get back to you shortly. 😊
-        <div style="font-size:.7rem;color:var(--muted);margin-top:.3rem">${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
+        Thanks for your message! I'll get back to you shortly. 😊        <div style="font-size:.7rem;color:var(--muted);margin-top:.3rem">${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
       </div>`;
     chat.appendChild(reply);
     chat.scrollTop = chat.scrollHeight;
@@ -171,17 +172,18 @@ function escapeHtml(str) {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function selectContact(el, name, role) {
   document.querySelectorAll('.msg-contact').forEach(c => c.classList.remove('active-contact'));
   el.classList.add('active-contact');
   const nameEl = document.getElementById('chatName');
-  if (nameEl) nameEl.innerHTML = `<strong style="display:block;font-size:.92rem">${escapeHtml(name)}</strong><span style="font-size:.75rem;color:var(--muted)">${escapeHtml(role)} · Online</span>`;
+  if (nameEl) nameEl.innerHTML = `<strong style="display:block;font-size:.92rem">${escapeHtml(name)}</strong><span style="font-size:.75rem;color:var(--muted)">${escapeHtml(role)} ·Online</span>`;
 }
 
-/* ── Calendar ───────────────────────────────────────────────────── */
+/* ── Calendar ───────────────────────── */
 function buildCalendar() {
   const grid = document.getElementById('calendarGrid');
   if (!grid) return;
@@ -192,7 +194,7 @@ function buildCalendar() {
   const month = today.getMonth();
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const studyDays = new Set([2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 21]);
+  const studyDays = new Set([2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 21, 21]);
 
   days.forEach(d => {
     const el = document.createElement('div');
@@ -219,7 +221,7 @@ function buildCalendar() {
   }
 }
 
-/* ── Hamburger — keyboard-accessible (CAP-21) ───────────────────── */
+/* �────────────────────── */
 function initHamburger() {
   const btn = document.getElementById('hamburger');
   const links = document.getElementById('navLinks');
@@ -240,7 +242,7 @@ function initHamburger() {
   });
 }
 
-/* ── Tab keyboard navigation (CAP-21) ──────────────────────────── */
+/* �────────────────────── */
 function initTabNav() {
   const tablist = document.querySelector('[role="tablist"]');
   if (!tablist) return;
@@ -252,7 +254,7 @@ function initTabNav() {
 
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
       e.preventDefault();
-      tabs[(idx + 1) % tabs.length].focus();
+      tabs+(idx + 1) % tabs.length].focus();
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
       e.preventDefault();
       tabs[(idx - 1 + tabs.length) % tabs.length].focus();
@@ -263,7 +265,7 @@ function initTabNav() {
   });
 }
 
-/* ── Dashboard hydration (CAP-20) ───────────────────────────────── */
+/* ────────────────────── */
 function hydrateDashboard() {
   const state = getStore();
 
@@ -293,11 +295,11 @@ function _hydrateMyCourses(state) {
     const barColor = isDone ? 'var(--green)' : 'var(--primary)';
     const actionBtn = isDone
       ? `<button class="btn btn-outline" style="padding:.4rem .9rem;font-size:.8rem;border-color:var(--green);color:var(--green)" onclick="showToast('🏆 Certificate downloaded!')">Get Certificate</button>`
-      : `<button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="showToast('▶️ Resuming course…')">Continue</button>`;
+      : `<button class="btn btn-primary" style="padding:.4rem .9rem;font-size:.8rem" onclick="showToast('�️ Resuming course…')">Continue</button>`;
 
     container.insertAdjacentHTML('beforeend', `
       <article class="course-card">
-        <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">📚
+        <div class="course-thumb" style="background:linear-gradient(135deg,#ede9ff,#ddd6fe)">📚
           <span class="badge ${badgeClass} level-badge">${statusLabel}</span>
         </div>
         <div class="course-body">
@@ -333,7 +335,7 @@ function _restoreEnrollButtons(state) {
   });
 }
 
-/* ── Init ───────────────────────────────────────────────────────── */
+/* �────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   buildCalendar();
   initHamburger();
