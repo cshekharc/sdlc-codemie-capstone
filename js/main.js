@@ -178,9 +178,9 @@ function applyFilters() {
 function switchTab(e, tabId) {
   if (e) e.preventDefault();
 
-  // Hide all tab panels (CAP-22: dynamic query via role attribute)
+  // Hide all tab panels (CAP-22: CSS class, no inline style mutations)
   document.querySelectorAll('[role="tabpanel"]').forEach(panel => {
-    panel.style.display = 'none';
+    panel.classList.add('tab-hidden');
   });
 
   // Deselect all tab buttons (CAP-22: dynamic query via role attribute)
@@ -190,9 +190,9 @@ function switchTab(e, tabId) {
     tab.classList.remove('active');
   });
 
-  // Show and focus target panel
+  // Show target panel via CSS class
   const panel = document.getElementById('tab-' + tabId);
-  if (panel) panel.style.display = 'block';
+  if (panel) panel.classList.remove('tab-hidden');
 
   // Activate the matching tab button
   const tab = document.querySelector(`[role="tab"][aria-controls="tab-${tabId}"]`);

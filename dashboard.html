@@ -16,7 +16,7 @@
         <div class="logo-icon">🎓</div>
         CodeMie
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="index.html#instructors">Instructors</a></li>
@@ -26,6 +26,9 @@
       <div class="nav-actions">
         <span style="font-size:.85rem;color:var(--muted)">👋 Hi, Alex!</span>
         <a href="index.html" class="btn btn-outline">Sign Out</a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -236,7 +239,7 @@
       </div>
 
       <!-- ── My Courses Tab ───────────────────────────────────────── -->
-      <div id="tab-my-courses" role="tabpanel" aria-labelledby="tab-btn-my-courses" tabindex="0" style="display:none">
+      <div id="tab-my-courses" role="tabpanel" aria-labelledby="tab-btn-my-courses" tabindex="0" class="tab-hidden">
         <div class="dash-header">
           <h1>My Courses</h1>
           <p>All your enrolled courses in one place.</p>
@@ -299,7 +302,7 @@
       </div>
 
       <!-- ── Certificates Tab ─────────────────────────────────────── -->
-      <div id="tab-certificates" role="tabpanel" aria-labelledby="tab-btn-certificates" tabindex="0" style="display:none">
+      <div id="tab-certificates" role="tabpanel" aria-labelledby="tab-btn-certificates" tabindex="0" class="tab-hidden">
         <div class="dash-header">
           <h1>My Certificates</h1>
           <p>Showcase your verified achievements.</p>
@@ -337,7 +340,7 @@
       </div>
 
       <!-- ── Messages Tab ─────────────────────────────────────────── -->
-      <div id="tab-messages" role="tabpanel" aria-labelledby="tab-btn-messages" tabindex="0" style="display:none">
+      <div id="tab-messages" role="tabpanel" aria-labelledby="tab-btn-messages" tabindex="0" class="tab-hidden">
         <div class="dash-header">
           <h1>Messages</h1>
           <p>Stay in touch with your instructors.</p>
@@ -417,7 +420,7 @@
       </div>
 
       <!-- ── Settings Tab ─────────────────────────────────────────── -->
-      <div id="tab-settings" role="tabpanel" aria-labelledby="tab-btn-settings" tabindex="0" style="display:none">
+      <div id="tab-settings" role="tabpanel" aria-labelledby="tab-btn-settings" tabindex="0" class="tab-hidden">
         <div class="dash-header">
           <h1>Account Settings</h1>
           <p>Manage your profile and preferences.</p>
@@ -471,7 +474,7 @@
       </div>
 
       <!-- ── Wishlist Tab ──────────────────────────────────────────── -->
-      <div id="tab-wishlist" role="tabpanel" aria-labelledby="tab-btn-wishlist" tabindex="0" style="display:none">
+      <div id="tab-wishlist" role="tabpanel" aria-labelledby="tab-btn-wishlist" tabindex="0" class="tab-hidden">
         <div class="dash-header">
           <h1>Wishlist</h1>
           <p>Courses you've saved for later.</p>
