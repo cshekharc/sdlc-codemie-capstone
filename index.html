@@ -16,7 +16,7 @@
         <div class="logo-icon">🎓</div>
         CodeMie
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="index.html#instructors">Instructors</a></li>
@@ -26,9 +26,9 @@
       <div class="nav-actions">
         <a href="dashboard.html" class="btn btn-outline">Sign In</a>
         <a href="courses.html" class="btn btn-primary">Get Started</a>
-        <div class="hamburger" id="hamburger">
+        <button class="hamburger" id="hamburger" aria-controls="navLinks" aria-expanded="false" aria-label="Open navigation menu">
           <span></span><span></span><span></span>
-        </div>
+        </button>
       </div>
     </div>
   </nav>
@@ -170,7 +170,7 @@
       </div>
       <div class="courses-grid" id="coursesGrid">
 
-        <article class="course-card" data-cat="programming">
+        <article class="course-card" data-cat="programming" data-course-id="js-bootcamp-2025">
           <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">
             🖥️
             <span class="badge badge-green level-badge">Beginner</span>
@@ -196,7 +196,7 @@
           </div>
         </article>
 
-        <article class="course-card" data-cat="data">
+        <article class="course-card" data-cat="data" data-course-id="python-data-science">
           <div class="course-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">
             📊
             <span class="badge badge-accent level-badge">Intermediate</span>
@@ -222,7 +222,7 @@
           </div>
         </article>
 
-        <article class="course-card" data-cat="design">
+        <article class="course-card" data-cat="design" data-course-id="ui-ux-figma">
           <div class="course-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">
             🎨
             <span class="badge badge-green level-badge">Beginner</span>
@@ -248,7 +248,7 @@
           </div>
         </article>
 
-        <article class="course-card" data-cat="ai">
+        <article class="course-card" data-cat="ai" data-course-id="deep-learning">
           <div class="course-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca)">
             🤖
             <span class="badge badge-red level-badge">Advanced</span>
@@ -274,7 +274,7 @@
           </div>
         </article>
 
-        <article class="course-card" data-cat="programming">
+        <article class="course-card" data-cat="programming" data-course-id="react-nextjs">
           <div class="course-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">
             ⚛️
             <span class="badge badge-accent level-badge">Intermediate</span>
@@ -300,7 +300,7 @@
           </div>
         </article>
 
-        <article class="course-card" data-cat="data">
+        <article class="course-card" data-cat="data" data-course-id="sql-database">
           <div class="course-thumb" style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff)">
             🧠
             <span class="badge badge-accent level-badge">Intermediate</span>
@@ -583,7 +583,7 @@
   </footer>
 
   <!-- ── Toast ─────────────────────────────────────────────────────── -->
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <script src="js/main.js"></script>
 </body>
