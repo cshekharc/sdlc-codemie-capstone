@@ -16,7 +16,7 @@
         <div class="logo-icon">🎓</div>
         CodeMie
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="index.html#instructors">Instructors</a></li>
@@ -26,6 +26,9 @@
       <div class="nav-actions">
         <span style="font-size:.85rem;color:var(--muted)">👋 Hi, Alex!</span>
         <a href="index.html" class="btn btn-outline">Sign Out</a>
+        <button class="hamburger" id="hamburger" aria-controls="navLinks" aria-expanded="false" aria-label="Open navigation menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -40,26 +43,28 @@
         <strong>Alex Johnson</strong>
         <span>Pro Member · Joined Jan 2025</span>
       </div>
-      <nav class="dash-nav">
-        <a href="#overview" class="active" onclick="switchTab(event,'overview')">
-          <span class="nav-icon">📊</span> Overview
-        </a>
-        <a href="#my-courses" onclick="switchTab(event,'my-courses')">
-          <span class="nav-icon">📚</span> My Courses
-        </a>
-        <a href="#certificates" onclick="switchTab(event,'certificates')">
-          <span class="nav-icon">🏆</span> Certificates
-        </a>
-        <a href="#wishlist" onclick="switchTab(event,'wishlist')">
-          <span class="nav-icon">❤️</span> Wishlist
-        </a>
-        <a href="#messages" onclick="switchTab(event,'messages')">
-          <span class="nav-icon">💬</span> Messages
-          <span class="badge badge-primary" style="margin-left:auto">3</span>
-        </a>
-        <a href="#settings" onclick="switchTab(event,'settings')">
-          <span class="nav-icon">⚙️</span> Settings
-        </a>
+      <nav class="dash-nav" aria-label="Dashboard sections">
+        <div role="tablist" aria-orientation="vertical">
+          <a href="#overview" id="tab-btn-overview" role="tab" data-tab="overview" aria-selected="true" tabindex="0" class="active" onclick="switchTab(event,'overview')">
+            <span class="nav-icon">📊</span> Overview
+          </a>
+          <a href="#my-courses" id="tab-btn-my-courses" role="tab" data-tab="my-courses" aria-selected="false" tabindex="-1" onclick="switchTab(event,'my-courses')">
+            <span class="nav-icon">📚</span> My Courses
+          </a>
+          <a href="#certificates" id="tab-btn-certificates" role="tab" data-tab="certificates" aria-selected="false" tabindex="-1" onclick="switchTab(event,'certificates')">
+            <span class="nav-icon">🏆</span> Certificates
+          </a>
+          <a href="#wishlist" id="tab-btn-wishlist" role="tab" data-tab="wishlist" aria-selected="false" tabindex="-1" onclick="switchTab(event,'wishlist')">
+            <span class="nav-icon">❤️</span> Wishlist
+          </a>
+          <a href="#messages" id="tab-btn-messages" role="tab" data-tab="messages" aria-selected="false" tabindex="-1" onclick="switchTab(event,'messages')">
+            <span class="nav-icon">💬</span> Messages
+            <span class="badge badge-primary" style="margin-left:auto">3</span>
+          </a>
+          <a href="#settings" id="tab-btn-settings" role="tab" data-tab="settings" aria-selected="false" tabindex="-1" onclick="switchTab(event,'settings')">
+            <span class="nav-icon">⚙️</span> Settings
+          </a>
+        </div>
       </nav>
     </aside>
 
@@ -67,7 +72,7 @@
     <main class="dash-main">
 
       <!-- ── Overview Tab ─────────────────────────────────────────── -->
-      <div id="tab-overview">
+      <div id="tab-overview" role="tabpanel" aria-labelledby="tab-btn-overview">
         <div class="dash-header">
           <h1>Good morning, Alex! 👋</h1>
           <p>You have 3 courses in progress. Keep up the great work!</p>
@@ -78,7 +83,7 @@
           <div class="dash-card">
             <div class="dash-card-icon purple">📚</div>
             <div>
-              <strong>8</strong>
+              <strong id="kpi-enrolled">8</strong>
               <span>Enrolled Courses</span>
             </div>
           </div>
@@ -236,12 +241,12 @@
       </div>
 
       <!-- ── My Courses Tab ───────────────────────────────────────── -->
-      <div id="tab-my-courses" style="display:none">
+      <div id="tab-my-courses" class="tab-hidden" role="tabpanel" aria-labelledby="tab-btn-my-courses">
         <div class="dash-header">
           <h1>My Courses</h1>
           <p>All your enrolled courses in one place.</p>
         </div>
-        <div class="courses-grid">
+        <div class="courses-grid" id="my-courses-grid">
           <article class="course-card">
             <div class="course-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">🖥️
               <span class="badge badge-primary level-badge">In Progress</span>
@@ -299,7 +304,7 @@
       </div>
 
       <!-- ── Certificates Tab ─────────────────────────────────────── -->
-      <div id="tab-certificates" style="display:none">
+      <div id="tab-certificates" class="tab-hidden" role="tabpanel" aria-labelledby="tab-btn-certificates">
         <div class="dash-header">
           <h1>My Certificates</h1>
           <p>Showcase your verified achievements.</p>
@@ -337,7 +342,7 @@
       </div>
 
       <!-- ── Messages Tab ─────────────────────────────────────────── -->
-      <div id="tab-messages" style="display:none">
+      <div id="tab-messages" class="tab-hidden" role="tabpanel" aria-labelledby="tab-btn-messages">
         <div class="dash-header">
           <h1>Messages</h1>
           <p>Stay in touch with your instructors.</p>
@@ -417,7 +422,7 @@
       </div>
 
       <!-- ── Settings Tab ─────────────────────────────────────────── -->
-      <div id="tab-settings" style="display:none">
+      <div id="tab-settings" class="tab-hidden" role="tabpanel" aria-labelledby="tab-btn-settings">
         <div class="dash-header">
           <h1>Account Settings</h1>
           <p>Manage your profile and preferences.</p>
@@ -473,7 +478,7 @@
     </main>
   </div>
 
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <script src="js/main.js"></script>
 </body>
 </html>
